@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IS_NULL | Премиальный ресейл</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Перейти к контенту</a>
+
+<header class="site-header">
+  <div class="news-ticker" aria-label="Лента новостей">
+    <div class="news-track" id="newsTrack">
+      <span class="ticker-item" data-ticker-slot="0"></span>
+      <span class="ticker-item" data-ticker-slot="1"></span>
+      <span class="ticker-item" data-ticker-slot="2"></span>
+      <span class="ticker-item" data-ticker-slot="3"></span>
+    </div>
+  </div>
+  <div class="header-shell">
+    <div class="header-variant header-variant--home">
+      <button class="icon-button mobile-only" id="mobileMenuButtonHome" aria-expanded="false" aria-controls="primaryNavHome">
+        <span aria-hidden="true">☰</span>
+        <span class="sr-only">Открыть меню</span>
+      </button>
+      <div class="header-home-grid">
+        <div aria-hidden="true"></div>
+        <button class="brand brand-button" data-view="home" aria-label="Перейти на главную">IS_NULL</button>
+        <div class="header-utils header-utils--home">
+          <button class="header-icon-btn" id="cartButtonHome" data-view="cart" aria-label="Корзина">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span id="cartCountHome" class="badge">0</span>
+          </button>
+          <button class="header-icon-btn" data-view="profile" aria-label="Аккаунт">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </button>
+        </div>
+      </div>
+      <nav id="primaryNavHome" class="primary-nav primary-nav--home" aria-label="Основная навигация">
+        <button class="nav-link active" data-view="home">Новый дроп</button>
+        <button class="nav-link" data-view="catalog" data-catalog-preset="bags">Сумки</button>
+        <button class="nav-link" data-view="brands">Бренды</button>
+        <button class="nav-link" data-view="catalog" data-catalog-preset="accessories">Аксессуары</button>
+        <button class="nav-link" data-view="about">О нас</button>
+        <button class="nav-link" data-view="contacts">Контакты</button>
+      </nav>
+    </div>
+
+    <div class="header-variant header-variant--app">
+      <button class="icon-button mobile-only" id="mobileMenuButton" aria-expanded="false" aria-controls="primaryNav">
+        <span aria-hidden="true">☰</span>
+        <span class="sr-only">Открыть меню</span>
+      </button>
+      <div class="header-app-grid">
+        <nav class="nav-left" aria-label="Навигация слева">
+          <button class="nav-link" data-view="home">Новый дроп</button>
+          <button class="nav-link" data-view="catalog" data-catalog-preset="bags">Сумки</button>
+          <button class="nav-link" data-view="brands">Бренды</button>
+        </nav>
+        <button class="brand brand-button brand-center" data-view="home" aria-label="Перейти на главную">IS_NULL</button>
+        <div class="header-app-right">
+          <nav id="primaryNav" class="nav-right" aria-label="Навигация справа">
+            <button class="nav-link" data-view="catalog" data-catalog-preset="accessories">Аксессуары</button>
+            <button class="nav-link" data-view="about">О нас</button>
+            <button class="nav-link" data-view="contacts">Контакты</button>
+          </nav>
+          <div class="header-utils">
+            <div class="mode-switch" role="tablist" aria-label="Режим интерфейса">
+              <button class="mode-switch-btn active" id="clientModeBtn" role="tab" aria-selected="true" data-mode="client">Клиент</button>
+              <button class="mode-switch-btn" id="adminModeBtn" role="tab" aria-selected="false" data-mode="admin">Админ</button>
+            </div>
+            <button class="header-icon-btn" id="cartButton" data-view="cart" aria-label="Корзина">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              <span id="cartCount" class="badge">0</span>
+            </button>
+            <button class="header-icon-btn" data-view="profile" aria-label="Аккаунт">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </button>
+            <span class="cart-toast" id="cartToast" aria-live="polite">Добавлено в корзину</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="view active" id="homeView" aria-label="Главная">
+    <div class="hero-full" role="button" tabindex="0" aria-label="Открыть каталог">
+      <img src="./assets/hero-home.png" alt="IS_NULL — архивная мода и винтажные сумки" class="hero-full-img">
+    </div>
+  </section>
+
+  <section class="view shell-light" id="brandsView" aria-labelledby="brandsTitle">
+    <div class="container section">
+      <h1 id="brandsTitle" class="page-title">БРЕНДЫ И КАТЕГОРИИ</h1>
+      <div id="brandsCategories" class="brands-categories"></div>
+    </div>
+  </section>
+
+  <section class="view shell-light" id="catalogView" aria-labelledby="catalogTitle">
+    <div class="container section">
+      <h1 id="catalogTitle" class="page-title sr-only">Каталог</h1>
+      <form class="filters" id="catalogFilters">
+        <button class="filter-pill" type="button" aria-disabled="true">Категории</button>
+        <label class="filter-select">
+          <span class="sr-only">Бренд</span>
+          <select id="brandFilter" aria-label="Бренд">
+            <option value="all">Бренд</option>
+          </select>
+        </label>
+        <label class="filter-select">
+          <span class="sr-only">Цена</span>
+          <select id="sortFilter" aria-label="Цена">
+            <option value="featured">Цена</option>
+            <option value="priceAsc">Цена ↑</option>
+            <option value="priceDesc">Цена ↓</option>
+          </select>
+        </label>
+        <button class="filter-pill" type="button" aria-disabled="true">Материал</button>
+        <label class="filter-select">
+          <span class="sr-only">Состояние</span>
+          <select id="conditionFilter" aria-label="Состояние">
+            <option value="all">Состояние</option>
+            <option value="Pristine">Pristine</option>
+            <option value="Excellent">Excellent</option>
+            <option value="Very Good">Very Good</option>
+          </select>
+        </label>
+      </form>
+      <div class="product-grid" id="catalogGrid"></div>
+      <nav class="pager" aria-label="Пагинация">
+        <button class="pager-btn" type="button" disabled>‹</button>
+        <button class="pager-btn" type="button" aria-current="page">1</button>
+        <button class="pager-btn" type="button">2</button>
+        <button class="pager-btn" type="button">3</button>
+        <span class="pager-ellipsis">…</span>
+        <button class="pager-btn" type="button">6</button>
+        <button class="pager-btn" type="button">›</button>
+      </nav>
+    </div>
+  </section>
+
+  <section class="view shell-light" id="productView" aria-labelledby="productTitle">
+    <div class="container section product-detail" id="productDetail"></div>
+  </section>
+
+  <section class="view shell-light" id="cartView" aria-labelledby="cartTitle">
+    <div class="container section">
+      <h1 id="cartTitle" class="page-title">КОРЗИНА</h1>
+      <div class="cart-center">
+        <div class="cart-table" role="table" aria-label="Корзина">
+          <div class="cart-row cart-head" role="row">
+            <div role="columnheader">Название</div>
+            <div role="columnheader">Стоимость</div>
+            <div role="columnheader">Кол-во</div>
+            <div role="columnheader" aria-label="Действия"></div>
+          </div>
+          <div id="cartItems" class="cart-body"></div>
+        </div>
+
+        <div class="promo-row" aria-label="Промокод">
+          <input id="promoInput" class="promo-input" type="text" placeholder="ПРОМОКОД">
+          <button id="applyPromoBtn" class="promo-apply" type="button">Применить</button>
+        </div>
+
+        <button class="btn btn-primary checkout-cta" type="button" data-view="checkout">Оформить заказ</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="view shell-light" id="checkoutView" aria-labelledby="checkoutTitle">
+    <div class="container section">
+      <h1 id="checkoutTitle" class="page-title">ОФОРМЛЕНИЕ ЗАКАЗА</h1>
+      <div class="checkout-2col">
+        <form id="checkoutForm" class="checkout-form">
+          <label>
+            Укажите ФИО*
+            <input required type="text" name="fullName" placeholder="Фамилия Имя Отчество">
+          </label>
+          <label>
+            Номер телефона*
+            <input required type="tel" name="phone" placeholder="+7">
+          </label>
+          <label>
+            E-mail
+            <input type="email" name="email" placeholder="e-mail">
+          </label>
+          <button class="btn btn-primary checkout-save" type="submit">Сохранить</button>
+        </form>
+
+        <aside class="checkout-summary" aria-label="Сводка заказа">
+          <dl id="checkoutSummary"></dl>
+          <button class="btn btn-primary checkout-cta" type="button" id="placeOrderBtn">Оформить заказ</button>
+        </aside>
+      </div>
+
+      <div class="checkout-meta">
+        <div class="meta-block">
+          <div class="meta-head">
+            <h2>Способ доставки:</h2>
+            <button class="meta-edit" type="button">Изменить</button>
+          </div>
+          <p>СДЭК</p>
+          <h3>Индекс:</h3>
+          <p>098765</p>
+          <h3>Сроки доставки:</h3>
+          <p>1-3 дня</p>
+          <h3>Город получателя:</h3>
+          <p>Санкт-Петербург</p>
+        </div>
+        <div class="meta-block">
+          <div class="meta-head">
+            <h2>Способ оплаты:</h2>
+            <button class="meta-edit" type="button">Изменить</button>
+          </div>
+          <p>Сбербанк</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view shell-light" id="ordersView" aria-labelledby="ordersTitle">
+    <div class="container section">
+      <h1 id="ordersTitle">История заказов</h1>
+      <div id="ordersList" class="orders-list"></div>
+    </div>
+  </section>
+
+  <section class="view shell-light" id="contactsView" aria-labelledby="contactsTitle">
+    <div class="container section info-page">
+      <h1 id="contactsTitle" class="page-title">КОНТАКТЫ</h1>
+      <p><strong>Шоурум:</strong> Санкт-Петербург, Невский пр., 28</p>
+      <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+      <p><strong>E-mail:</strong> support@isnull.archive</p>
+      <p><strong>График:</strong> ежедневно 11:00–21:00</p>
+    </div>
+  </section>
+
+  <section class="view shell-light" id="aboutView" aria-labelledby="aboutTitle">
+    <div class="container section info-page">
+      <h1 id="aboutTitle" class="page-title">О НАС</h1>
+      <p>IS_NULL — curated resale-платформа архивной моды и редких аксессуаров.</p>
+      <p>Каждый лот проходит проверку подлинности и состояния перед публикацией.</p>
+    </div>
+  </section>
+
+  <section class="view shell-light" id="profileView" aria-labelledby="profileTitle">
+    <div class="profile-page">
+      <h1 id="profileTitle" class="page-title profile-title">ЛИЧНЫЙ КАБИНЕТ</h1>
+      <div class="account-layout">
+        <aside class="account-nav" aria-label="Меню аккаунта">
+          <button class="account-link" type="button" data-view="home">Главная</button>
+          <button class="account-link active" type="button" data-view="profile">Личный кабинет</button>
+          <button class="account-link" type="button" data-view="cart">Корзина</button>
+          <button class="account-link" type="button" data-view="checkout">Оформить заказ</button>
+          <button class="account-link" type="button" data-view="contacts">Контакты</button>
+        </aside>
+        <form class="account-form" id="profileForm">
+          <div class="field-grid">
+            <div class="field-group">
+              <label for="profileFirstName">Имя</label>
+              <input id="profileFirstName" type="text" placeholder="Имя" autocomplete="given-name">
+            </div>
+            <div class="field-group">
+              <label for="profileLastName">Фамилия</label>
+              <input id="profileLastName" type="text" placeholder="Фамилия" autocomplete="family-name">
+            </div>
+            <div class="field-group">
+              <label for="profilePhone">Номер телефона</label>
+              <input id="profilePhone" type="tel" placeholder="+7" autocomplete="tel">
+            </div>
+            <div class="field-group">
+              <label for="profileEmail">Почта</label>
+              <input id="profileEmail" type="email" placeholder="e-mail" autocomplete="email">
+            </div>
+            <div class="field-group">
+              <label for="profileBirth">Дата рождения</label>
+              <input id="profileBirth" type="text" placeholder="ДД.ММ.ГГГГ" inputmode="numeric">
+            </div>
+            <div class="field-group">
+              <label for="profileGender">Пол</label>
+              <select id="profileGender" aria-label="Пол">
+                <option value="">Пол</option>
+                <option value="female">Женский</option>
+                <option value="male">Мужской</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary account-save" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="view shell-light" id="adminView" aria-labelledby="adminTitle">
+    <div class="container section">
+      <h1 id="adminTitle">Админ-панель</h1>
+      <div class="admin-tabs" role="tablist" aria-label="Админ разделы">
+        <button class="admin-tab active" role="tab" data-admin="dashboard">Аналитика</button>
+        <button class="admin-tab" role="tab" data-admin="products">Товары</button>
+        <button class="admin-tab" role="tab" data-admin="orders">Заказы</button>
+      </div>
+
+      <div id="adminDashboard" class="admin-panel active">
+        <div class="kpi-grid" id="kpiGrid"></div>
+        <div class="card">
+          <h2>Лидеры брендов</h2>
+          <ul class="simple-list" id="brandLeaders"></ul>
+        </div>
+      </div>
+
+      <div id="adminProducts" class="admin-panel">
+        <div class="section-head">
+          <h2>Управление карточками товаров</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+            <tr><th>ID</th><th>Название</th><th>Бренд</th><th>Размер</th><th>Цена</th><th>Состояние</th></tr>
+            </thead>
+            <tbody id="productsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="adminOrders" class="admin-panel">
+        <div class="section-head">
+          <h2>Список заказов</h2>
+          <select id="adminStatusFilter" aria-label="Фильтр статуса заказа">
+            <option value="all">Все статусы</option>
+            <option value="Processing">В обработке</option>
+            <option value="Shipped">Отправлено</option>
+            <option value="Delivered">Доставлено</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+            <tr><th>ID заказа</th><th>Клиент</th><th>Дата</th><th>Сумма</th><th>Статус</th><th>Доставка</th></tr>
+            </thead>
+            <tbody id="adminOrdersBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" aria-label="Подвал">
+  <div class="container footer-inner">
+    <nav class="footer-links" aria-label="Ссылки">
+      <a href="#" class="footer-link">Политика конфиденциальности</a>
+      <a href="#" class="footer-link">Вопросы</a>
+      <a href="#" class="footer-link">Контакты</a>
+    </nav>
+    <div class="footer-social" aria-label="Соцсети">
+      <a class="social-btn" href="#" aria-label="Telegram">tg</a>
+      <a class="social-btn" href="#" aria-label="VK">vk</a>
+      <a class="social-btn" href="#" aria-label="Instagram">in</a>
+    </div>
+  </div>
+</footer>
+
+<script src="./config.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

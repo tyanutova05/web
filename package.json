@@ -1,0 +1,14 @@
+{
+  "name": "is-null-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "dotenv": "^16.6.1",
+    "pg": "^8.13.1"
+  }
+}
